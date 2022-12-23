@@ -1,6 +1,6 @@
 const express = require('express');
 const { createAdmin, adminLogin } = require('../controllers/adminController');
-const { createCrop } = require('../controllers/cropController');
+const { createCrop, getCrop } = require('../controllers/cropController');
 const { createCropField } = require('../controllers/cropFieldController');
 const { createCropProperty } = require('../controllers/cropPropertyController');
 const { createField, getField } = require('../controllers/fieldController');
@@ -33,6 +33,7 @@ router.get('/agri/v1/getRegion/:propertyId', getRegion);
 
 // Crop Routes
 router.post('/agri/v1/createCrop', authentication, createCrop);
+router.get('/agri/v1/getCrop', getCrop);
 router.post('/agri/v1/createCropProperty', authentication, createCropProperty); // -------> Crop Properties Route
 router.post('/agri/v1/createCropField', authentication, createCropField); // --------> Crop Field Route
 
