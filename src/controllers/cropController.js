@@ -57,7 +57,7 @@ const getCrop = async (req, res) => {
     try {
 
         let cropData = await cropModel.find().populate({ path: 'cropFieldId', populate: [{ path: 'cropPropertyId', model: 'CropProperty' }] })
-        if (finddata.length == 0) return res.status(400).send({ status: false, message: 'crop data is not Found' });
+        if (cropData.length == 0) return res.status(400).send({ status: false, message: 'crop data is not Found' });
         res.status(200).send({ status: true, data: cropData });
 
     } catch (error) {
